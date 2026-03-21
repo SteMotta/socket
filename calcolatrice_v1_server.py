@@ -11,11 +11,12 @@ print("Aspettando il calcolo da effettuare...")
 
 while True:
     data, addr = s.recvfrom(BUFFER_SIZE)
-    data = data.decode()
-    print(f"Messaggio ricevuto dal client {addr}: {data}")
     if not data:
         break
+    data = data.decode()
+    print(f"Messaggio ricevuto dal client {addr}: {data}")
     data = json.loads(data)
-    primo_numero = data["primo_numero"]
+    primo_numero = str(data["primo_numero"])
     operazione = data["operazione"]
-    secondo_numero = data["secondo_numero"]
+    secondo_numero = str(data["secondo_numero"])
+    print(f"Calcolo effettuato: {primo_numero} {operazione} {secondo_numero} = {eval(primo_numero + operazione + secondo_numero)}")
