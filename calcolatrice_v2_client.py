@@ -17,3 +17,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock_service:
     sock_service.connect((SERVER_IP, SERVER_PORT))
     sock_service.sendall(messaggio.encode("UTF-8"))
     data = sock_service.recv(BUFFER_SIZE)
+    print(f"Risultato: {data.decode()}")
