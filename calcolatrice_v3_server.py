@@ -18,7 +18,7 @@ def ricevi_comandi(socket_client, addr_client):
     secondo_numero = str(data["secondo_numero"])
     risultato = eval(primo_numero + operazione + secondo_numero)
     socket_client.sendall(str(risultato).encode())
-socket_client.close()
+    socket_client.close()
 
 def ricevi_connessioni(socket_listener):
     socket_client, addr_client = socket_listener.accept()
