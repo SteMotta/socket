@@ -19,4 +19,6 @@ while True:
     primo_numero = str(data["primo_numero"])
     operazione = data["operazione"]
     secondo_numero = str(data["secondo_numero"])
-    print(f"Calcolo effettuato: {primo_numero} {operazione} {secondo_numero} = {eval(primo_numero + operazione + secondo_numero)}")
+    risultato = eval(primo_numero + operazione + secondo_numero)
+    print(f"Calcolo effettuato: {primo_numero} {operazione} {secondo_numero} = {risultato}")
+    socket.sendto(str(risultato).encode(), addr)

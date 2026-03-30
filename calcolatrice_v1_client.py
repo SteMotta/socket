@@ -15,4 +15,6 @@ messaggio = {"primo_numero": primo_numero,
              "secondo_numero": secondo_numero}
 messaggio = json.dumps(messaggio)
 s.sendto(messaggio.encode("UTF-8"), (SERVER_IP, SERVER_PORT))
+risultato = s.recv(BUFFER_SIZE).decode("UTF-8")
+print(risultato)
 s.close()
